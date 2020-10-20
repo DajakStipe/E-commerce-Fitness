@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"start": "node backend/server",
 		"server": "nodemon backend/server",
@@ -20,7 +21,9 @@
 	},
 	"homepage": "https://github.com/DajakStipe/WyreFitness#readme",
 	"dependencies": {
-		"express": "^4.17.1"
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.10.9"
 	},
 	"devDependencies": {
 		"concurrently": "^5.3.0",
