@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message.js";
+import { createOrder } from "../actions/orderActions";
 
-const PlaceOrderScreen = () => {
+const PlaceOrderScreen = ({ history }) => {
+	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart);
-	console.log(cart.paymentMethod);
+
 	const { paymentMethod } = cart;
 
 	//calculate prices
@@ -19,7 +21,7 @@ const PlaceOrderScreen = () => {
 	);
 
 	const freeDelivery = Number(100 - Number(cart.itemsPrice)).toFixed(0);
-	console.log(freeDelivery);
+
 	cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 20);
 	cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)));
 	cart.totalPrice =
@@ -27,9 +29,31 @@ const PlaceOrderScreen = () => {
 		Number(cart.taxPrice) +
 		Number(cart.shippingPrice);
 
+	const orderCreate = useSelector((state) => state.orderCreate);
+	const { order, success, error } = orderCreate;
+
+	useEffect(() => {
+		if (success) {
+			history.push(`/order/${order._id}`);
+		}
+		// eslint-disable-next-line
+	}, [history, success]);
+
 	const placeOrderHandler = () => {
-		console.log("object");
+		dispatch(
+			createOrder({
+				orderItems: cart.cartItems,
+				shippingAddress: cart.shippingAddress,
+				paymentMethod: cart.paymentMethod,
+				itemsPrice: cart.itemsPrice,
+				shippingPrice: cart.shippingPrice,
+				taxPrice: cart.taxPrice,
+				totalPrice: cart.totalPrice,
+			})
+		);
 	};
+
+	console.log(order);
 
 	return (
 		<>
@@ -147,6 +171,11 @@ const PlaceOrderScreen = () => {
 										</span>
 									</Col>
 								</Row>
+							</ListGroup.Item>
+							<ListGroup.Item>
+								{error ? (
+									<Message variant='danger'>{error}</Message>
+								) : null}
 							</ListGroup.Item>
 							<ListGroup.Item>
 								<Button
