@@ -22,3 +22,9 @@ h2 {
 .boldthisthing {
 	font-weight: 1000;
 }
+
+.positionthisthing {
+	text-align: center;
+
+	/* padding-left: 35px; */
+}
