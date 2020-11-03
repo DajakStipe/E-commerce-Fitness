@@ -24,7 +24,7 @@ const UserListScreen = ({ history }) => {
 		} else {
 			history.push("/");
 		}
-	}, [dispatch, history, successDelete]);
+	}, [dispatch, history, successDelete, userInfo]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm("Are you sure you want to delete that user?")) {
@@ -55,8 +55,9 @@ const UserListScreen = ({ history }) => {
 								<td>{user._id}</td>
 								<td>{user.name}</td>
 								<td>
-									<a href={`mailto:${user.email}`}></a>{" "}
-									{user.email}
+									<a href={`mailto:${user.email}`}>
+										{user.email}
+									</a>
 								</td>
 								<td
 									style={{

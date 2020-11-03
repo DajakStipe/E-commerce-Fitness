@@ -10,6 +10,7 @@ import {
 	ORDER_LIST_MY_SUCCESS,
 	ORDER_LIST_MY_REQUEST,
 	ORDER_LIST_MY_FAIL,
+	ORDER_PAY_FAIL,
 } from "../constants/orderConstants";
 import axios from "axios";
 
@@ -71,10 +72,13 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 			payload: data,
 		});
 	} catch (error) {
-		const message =
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message;
+		dispatch({
+			type: ORDER_DETAILS_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
 	}
 };
 
@@ -109,10 +113,13 @@ export const payOrder = (orderId, paymentResult) => async (
 			payload: data,
 		});
 	} catch (error) {
-		const message =
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message;
+		dispatch({
+			type: ORDER_PAY_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
 	}
 };
 
