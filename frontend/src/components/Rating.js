@@ -64,7 +64,7 @@ const Rating = ({ value, text, color }) => {
 					}
 				></i>
 			</span>
-			<span> of {text && text}</span>
+			<span> {text && text}</span>
 		</div>
 	);
 };
@@ -73,8 +73,6 @@ Rating.defaultProps = {
 };
 
 Rating.propTypes = {
-	value: PropTypes.number.isRequired,
-	text: PropTypes.string.isRequired,
 	color: PropTypes.string,
 };
 
