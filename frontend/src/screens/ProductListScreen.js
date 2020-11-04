@@ -79,7 +79,7 @@ const ProductListScreen = ({ history, match }) => {
 					</Button>
 				</Col>
 			</Row>
-			<h1>Users</h1>
+
 			{loadingCreate && <Loader />}
 			{errorCreate && <Message variant='danger'>{errorCreate}</Message>}
 			{loadingDelete && <Loader />}
