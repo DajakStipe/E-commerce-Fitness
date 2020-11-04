@@ -50,7 +50,7 @@ const OrderListScreen = ({ history, match }) => {
 								<td>${order.totalPrice}</td>
 								<td>
 									{order.isPaid ? (
-										order.paidAt.subString(0, 10)
+										order.paidAt.substring(0, 10)
 									) : (
 										<i
 											className='fas fa-times'
@@ -60,7 +60,7 @@ const OrderListScreen = ({ history, match }) => {
 								</td>
 								<td>
 									{order.isDelivered ? (
-										order.deliveredAt.subString(0, 10)
+										order.deliveredAt.substring(0, 10)
 									) : (
 										<i
 											className='fas fa-times'
