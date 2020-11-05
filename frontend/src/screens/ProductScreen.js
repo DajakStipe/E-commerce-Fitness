@@ -18,6 +18,7 @@ import {
 } from "../actions/productActions.js";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
+import Meta from "../components/Meta.js";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productContstants.js";
 
 const ProductScreen = ({ match, history }) => {
@@ -73,6 +74,7 @@ const ProductScreen = ({ match, history }) => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<>
+					<Meta title={product.name} />
 					<Row>
 						<Col md={6}>
 							<Image
