@@ -12,7 +12,7 @@ const Product = ({ product }) => {
 			<Card.Body>
 				<Link to={`/product/${product._id}`}>
 					<Card.Title as='div'>
-						<strong>{product.name}</strong>
+						<span className='boldthisthing'>{product.name}</span>
 					</Card.Title>
 				</Link>
 				<Card.Text as='div'>

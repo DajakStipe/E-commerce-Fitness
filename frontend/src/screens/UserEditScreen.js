@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
 import { getUserDetails, updateUser } from "../actions/userActions.js";
-import {
-	USER_UPDATE_SUCCESS,
-	USER_UPDATE_RESET,
-} from "../constants/userConstants";
+import { USER_UPDATE_RESET } from "../constants/userConstants";
 import FormContainer from "../components/FormContainer.js";
 
 const UserEditScreen = ({ match, history }) => {

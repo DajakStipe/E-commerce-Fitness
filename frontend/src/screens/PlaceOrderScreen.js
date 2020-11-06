@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message.js";
 import { createOrder } from "../actions/orderActions";
-import { CART_RESET } from "../constants/cartConstants";
 
 const PlaceOrderScreen = ({ location, history }) => {
 	const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const PlaceOrderScreen = ({ location, history }) => {
 		if (success) {
 			history.push(`/order/${order._id}`);
 		}
-	}, [history, success]);
+	}, [history, success, order]);
 
 	const placeOrderHandler = () => {
 		dispatch(
@@ -52,8 +51,6 @@ const PlaceOrderScreen = ({ location, history }) => {
 			})
 		);
 	};
-
-	console.log(order);
 
 	return (
 		<>

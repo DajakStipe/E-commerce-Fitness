@@ -10,10 +10,7 @@ import {
 	deleteProduct,
 	createProduct,
 } from "../actions/productActions";
-import {
-	PRODUCT_CREATE_RESET,
-	PRODUCT_CREATE_SUCCESS,
-} from "../constants/productContstants";
+import { PRODUCT_CREATE_RESET } from "../constants/productContstants";
 
 const ProductListScreen = ({ history, match }) => {
 	const pageNumber = match.params.pageNumber || 1;
@@ -56,7 +53,7 @@ const ProductListScreen = ({ history, match }) => {
 		userInfo,
 		successDelete,
 		successCreate,
-		createProduct,
+		createdProduct,
 		pageNumber,
 	]);
 

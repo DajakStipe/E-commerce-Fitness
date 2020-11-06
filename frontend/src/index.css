@@ -20,7 +20,10 @@ h2 {
 }
 
 .boldthisthing {
-	font-weight: 1000;
+	font-weight: 100;
+	text-align: center;
+	justify-content: center;
+	text-transform: uppercase;
 }
 
 .positionthisthing {

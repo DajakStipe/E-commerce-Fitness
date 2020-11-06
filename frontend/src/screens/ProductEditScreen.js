@@ -137,13 +137,11 @@ const ProductEditScreen = ({ match, history }) => {
 								type='text'
 								placeholder='Enter image url'
 								value={image}
-								required
 								onChange={(e) => setImage(e.target.value)}
 							></Form.Control>
 							<Form.File
 								id='image-file'
 								label='Choose File'
-								required
 								custom
 								onChange={uploadFileHandler}
 							></Form.File>
