@@ -1,5 +1,6 @@
 # WyreFitness
 
+https://wyrefitnessapp.herokuapp.com/
 
 Info to login:
 
